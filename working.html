@@ -26,9 +26,9 @@
           marker.addEventListener(
             "markerLost",
             function () {
-              this.vid.pause();
+              this.vid.stop();
               this.vid.currentTime = 0;
-              this.vid2.pause();
+              this.vid2.stop();
               this.vid2.currentTime = 0;
             }.bind(this)
           );
