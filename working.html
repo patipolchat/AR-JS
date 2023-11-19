@@ -13,11 +13,13 @@
           var marker = this.el;
 
           this.vid = document.querySelector("#vid");
+          this.vid2 = document.querySelector("#vid2");
 
           marker.addEventListener(
             "markerFound",
             function () {
               this.vid.play();
+              this.vid2.play();
             }.bind(this)
           );
 
@@ -26,6 +28,8 @@
             function () {
               this.vid.pause();
               this.vid.currentTime = 0;
+              this.vid2.pause();
+              this.vid2.currentTime = 0;
             }.bind(this)
           );
         },
