@@ -66,9 +66,21 @@
     >
       <a-assets>
         <video
-          src="images/mov_bbb.mp4"
+          src="videos/mov_bbb.mp4"
           preload="auto"
           id="vid"
+          response-type="arraybuffer"
+          loop
+          crossorigin
+          webkit-playsinline
+          autoplay
+          muted
+          playsinline
+        ></video>
+        <video
+          src="videos/10sec.mp4"
+          preload="auto"
+          id="vid2"
           response-type="arraybuffer"
           loop
           crossorigin
@@ -90,6 +102,25 @@
       >
         <a-video
           src="#vid"
+          position="50 150 -100"
+          rotation="90 0 180"
+          width="300"
+          height="175"
+        >
+        </a-video>
+      </a-nft>
+
+      <a-nft
+        videohandler
+        type="nft"
+        url="data/dataNFT/img"
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance="0.01"
+        smoothThreshold="5"
+      >
+        <a-video
+          src="#vid2"
           position="50 150 -100"
           rotation="90 0 180"
           width="300"
