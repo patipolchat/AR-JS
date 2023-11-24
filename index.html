@@ -203,10 +203,12 @@
 				this.vid = document.querySelector("#vid");
 
         this.el.sceneEl.addEventListener("markerFound", () => {
-         this.vid.play();
+					alert("found");
+         	this.vid.play();
         });
              
         this.el.sceneEl.addEventListener("markerLost", () => {
+					alert("lost");
           this.vid.pause();
           this.vid.currentTime = 0;
         });
@@ -231,7 +233,7 @@
 				<video
 					src="vide`os/mov_bbb.mp4"
 					preload="auto"
-					id="vid"
+					id="vid2"
 					response-type="arraybuffer"
 					loop
 					crossorigin
@@ -241,7 +243,7 @@
 				<video
 					src="videos/10sec.mp4"
 					preload="auto"
-					id="vid2"
+					id="vid"
 					response-type="arraybuffer"
 					loop
 					crossorigin
