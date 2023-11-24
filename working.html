@@ -28,13 +28,14 @@
     window.onload = function () {
       AFRAME.registerComponent("videohandler1", {
         init: function () {
-          var marker = this.el.sceneEl;
+          var marker = this.el;
 
           this.vid = document.querySelector("#vid");
 
           marker.addEventListener(
             "markerFound",
             function () {
+              this.vid.currentTime = 0;
               this.vid.play();
             }.bind(this)
           );
@@ -50,13 +51,14 @@
       });
       AFRAME.registerComponent("videohandler2", {
         init: function () {
-          var marker = this.el.sceneEl;
+          var marker = this.el;
 
           this.vid2 = document.querySelector("#vid2");
 
           marker.addEventListener(
             "markerFound",
             function () {
+              this.vid2.currentTime = 0;
               this.vid2.play();
             }.bind(this)
           );
