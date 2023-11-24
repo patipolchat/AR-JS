@@ -199,10 +199,15 @@
   </style>
   <script>
     AFRAME.registerComponent("markerhandler", {
+			
       init: function () {
         this.el.sceneEl.addEventListener("markerFound", () => {
-          // redirect to custom URL
-          window.location = "https://github.com/AR-js-org/AR.js";
+         this.vid.play();
+        });
+             
+        this.el.sceneEl.addEventListener("markerLost", () => {
+          this.vid.pause();
+          this.vid.currentTime = 0;
         });
       },
     });
@@ -221,7 +226,37 @@
     >
       <!-- we use cors proxy to avoid cross-origin problems -->
       <!-- we use the trex image shown on the homepage of the docs -->
-      <a-nft markerhandler type="nft" url="data/dataNFT/pinball"> </a-nft>
+			<a-assets>
+				<video
+					src="vide`os/mov_bbb.mp4"
+					preload="auto"
+					id="vid"
+					response-type="arraybuffer"
+					loop
+					crossorigin
+					webkit-playsinline
+					playsinline
+				></video>
+				<video
+					src="videos/10sec.mp4"
+					preload="auto"
+					id="vid2"
+					response-type="arraybuffer"
+					loop
+					crossorigin
+					webkit-playsinline
+					playsinline
+				></video>
+			</a-assets>
+      <a-nft markerhandler type="nft" url="data/dataNFT/pinball">
+				<a-video
+          src="#vid"
+          position="50 150 -100"
+          rotation="90 0 180"
+          width="300"
+          height="175"
+        >
+			</a-nft>
       <a-entity camera></a-entity>
     </a-scene>
   </body>
