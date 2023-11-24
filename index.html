@@ -198,21 +198,21 @@
     }
   </style>
   <script>
-    AFRAME.registerComponent("markerhandler", {
-      init: function () {
-        // this.vid = document.querySelector("#vid");
-        this.vid = document.getElementById("vid");
+    // AFRAME.registerComponent("markerhandler", {
+    //   init: function () {
+    //     // this.vid = document.querySelector("#vid");
+    //     this.vid = document.getElementById("vid");
 
-        this.el.sceneEl.addEventListener("markerFound", () => {
-          this.vid.play();
-        });
+    //     this.el.sceneEl.addEventListener("markerFound", () => {
+    //       this.vid.play();
+    //     });
 
-        this.el.sceneEl.addEventListener("markerLost", () => {
-          this.vid.pause();
-          this.vid.currentTime = 0;
-        });
-      },
-    });
+    //     this.el.sceneEl.addEventListener("markerLost", () => {
+    //       this.vid.pause();
+    //       this.vid.currentTime = 0;
+    //     });
+    //   },
+    // });
   </script>
 
   <body style="margin: 0px; overflow: hidden">
@@ -220,12 +220,7 @@
     <div class="arjs-loader">
       <div>Loading, please wait...</div>
     </div>
-    <a-scene
-      vr-mode-ui="enabled: false;"
-      renderer="antialias: true; alpha: true; precision: medium;"
-      embedded
-      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
-    >
+    <a-scene embedded arjs>
       <!-- we use cors proxy to avoid cross-origin problems -->
       <!-- we use the trex image shown on the homepage of the docs -->
       <a-assets>
@@ -264,14 +259,19 @@
         >
 			</a-nft> -->
       <a-marker markerhandler preset="hiro">
-				<a-video
+        <!-- <a-video
           src="#vid"
           position="50 150 0"
           rotation="90 0 180"
           width="300"
           height="175"
-        >
-			</a-marker>
+        > -->
+        <a-entity
+          position="0 0 0"
+          scale="0.05 0.05 0.05"
+          gltf-model="https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+        ></a-entity>
+      </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
   </body>
