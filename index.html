@@ -199,8 +199,9 @@
   </style>
   <script>
     AFRAME.registerComponent("markerhandler", {
-			
       init: function () {
+				this.vid = document.querySelector("#vid");
+
         this.el.sceneEl.addEventListener("markerFound", () => {
          this.vid.play();
         });
