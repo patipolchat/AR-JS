@@ -204,12 +204,10 @@
 				this.vid = document.getElementById("vid");
 
         this.el.sceneEl.addEventListener("markerFound", () => {
-					alert(this.vid);
          	this.vid.play();
         });
              
         this.el.sceneEl.addEventListener("markerLost", () => {
-					alert("lost");
           this.vid.pause();
           this.vid.currentTime = 0;
         });
