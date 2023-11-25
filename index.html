@@ -12,12 +12,12 @@
         // this.vid = document.querySelector("#vid");
         this.vid = document.getElementById("vid");
 
-        this.el.sceneEl.addEventListener("markerFound", () => {
+        this.el.addEventListener("markerFound", () => {
           console.log("markerFound");
           this.vid.play();
         });
 
-        this.el.sceneEl.addEventListener("markerLost", () => {
+        this.el.addEventListener("markerLost", () => {
           console.log("markerLost");
           this.vid.pause();
           this.vid.currentTime = 0;
