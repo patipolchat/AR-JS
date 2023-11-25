@@ -10,10 +10,12 @@
         this.vid = document.getElementById("vid");
 
         this.el.sceneEl.addEventListener("markerFound", () => {
+          console.log("markerFound");
           this.vid.play();
         });
 
         this.el.sceneEl.addEventListener("markerLost", () => {
+          console.log("markerLost");
           this.vid.pause();
           this.vid.currentTime = 0;
         });
@@ -51,7 +53,7 @@
         </a-box>
       </a-marker>
 
-      <a-marker type="barcode" value="1">
+      <a-marker markerhandler type="barcode" value="1">
         <a-videosphere rotation="0 -90 0" src="#vid"></a-videosphere>
       </a-marker>
 
